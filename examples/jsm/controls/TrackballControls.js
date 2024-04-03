@@ -38,6 +38,9 @@ class TrackballControls extends EventDispatcher {
 		this.noZoom = false;
 		this.noPan = false;
 
+		this.autoRotate = true;
+		this.autoRotateSpeed = 1;
+
 		this.staticMoving = false;
 		this.dynamicDampingFactor = 0.2;
 
@@ -149,6 +152,9 @@ class TrackballControls extends EventDispatcher {
 				moveDirection = new Vector3();
 
 			return function rotateCamera() {
+				if(scope.autoRotate){
+					_moveCurr.x -= 2 * Math.PI / 60/60 * scope.autoRotateSpeed;
+				}
 
 				moveDirection.set( _moveCurr.x - _movePrev.x, _moveCurr.y - _movePrev.y, 0 );
 				let angle = moveDirection.length();
