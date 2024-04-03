@@ -340,7 +340,7 @@ class MaterialCreator {
 				return '';
 
 			// Absolute URL
-			if ( /^https?:\/\//i.test( url ) ) return url;
+			if ( /^https?:\/\/|data:/i.test( url ) ) return url;
 
 			return baseUrl + url;
 
