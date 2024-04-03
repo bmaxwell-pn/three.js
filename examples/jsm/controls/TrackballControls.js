@@ -108,6 +108,10 @@ class TrackballControls extends EventDispatcher {
 
 		};
 
+		this.getState = function(){
+			return this._state;
+		}
+
 		const getMouseOnScreen = ( function () {
 
 			const vector = new Vector2();
